@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://c248igghtbqaa"]
+
+[ext_resource type="Script" path="res://Scripts/XRSetup.gd" id="1_oynqa"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="XROrigin3D" type="XROrigin3D" parent="."]
+script = ExtResource("1_oynqa")
+
+[node name="LeftController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"left_hand"
+
+[node name="RightController" type="XRController3D" parent="XROrigin3D"]
+tracker = &"right_hand"
+
+[node name="XRCamera3D" type="XRCamera3D" parent="XROrigin3D"]
