@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://ciktdp48ih6x2"]
+
+[ext_resource type="Script" path="res://Scripts/ControllerInteraction.gd" id="1_o2nyu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_p7cnu"]
+radius = 0.075
+
+[node name="Controller" type="XRController3D"]
+tracker = &"left_hand"
+script = ExtResource("1_o2nyu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_p7cnu")
+
+[connection signal="input_float_changed" from="." to="." method="_on_input_float_changed"]
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

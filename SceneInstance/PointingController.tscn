@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ckyll74orpxjq"]
+
+[ext_resource type="Script" path="res://Scripts/ControllerInteraction.gd" id="1_yxxvo"]
+[ext_resource type="AudioStream" uid="uid://cdh8mfe5k7f0i" path="res://Audio/beep.mp3" id="2_dyj14"]
+
+[node name="Controller" type="XRController3D"]
+tracker = &"left_hand"
+script = ExtResource("1_yxxvo")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+collision_mask = 256
+collide_with_areas = true
+
+[node name="Beeper" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_dyj14")
+
+[connection signal="input_float_changed" from="." to="." method="_on_input_float_changed"]
