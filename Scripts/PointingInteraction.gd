@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	$"LineRenderer".points[1] = end
 	
 		
-	$"RayCast3D".target_position = $"RayCast3D".to_local(end)
+	$"RayCast3D".target_position = $"RayCast3D".to_local(end)	
 	var cur_collider = $"RayCast3D".get_collider()
 	if $"RayCast3D".is_colliding():
 		if active_collider == null or active_collider != cur_collider:

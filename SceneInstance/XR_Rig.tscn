@@ -21,6 +21,12 @@ script = ExtResource("7_u3vcr")
 [node name="OculusQuest2TouchController_Left" parent="LeftPointingController" instance=ExtResource("6_sniy3")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
+[node name="LineRenderer" type="MeshInstance3D" parent="LeftPointingController"]
+material_override = ExtResource("9_lmi2c")
+mesh = SubResource("ImmediateMesh_rub5m")
+skeleton = NodePath("../..")
+script = ExtResource("9_bjnww")
+
 [node name="RightPointingController" parent="." instance=ExtResource("5_naq8d")]
 tracker = &"right_hand"
 script = ExtResource("7_u3vcr")
