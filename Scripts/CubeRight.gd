@@ -17,5 +17,5 @@ func _process(delta: float) -> void:
 	global_transform.origin += direction * cube_speed * delta
 
 	if global_transform.origin.distance_to(target_position) < 0.5:
-		print("Cube has reached the target position!")
+		#print("Cube has reached the target position!")
 		queue_free()

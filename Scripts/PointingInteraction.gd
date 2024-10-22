@@ -12,7 +12,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if laser_on:
 		var start = global_position + (-global_basis.z * 0.1)
-		var end = (-global_basis.z * 10.0) + start
+		var end = (-global_basis.z * 2.0) + start
 		
 		$"LineRenderer".points[0] = start
 		$"LineRenderer".points[1] = end
