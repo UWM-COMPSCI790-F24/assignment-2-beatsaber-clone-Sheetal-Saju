@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://b473gcy6ep4b5"]
+
+[ext_resource type="PackedScene" uid="uid://dq733seyb6i7d" path="res://SceneInstance/XR_Rig.tscn" id="1_aqtp4"]
+[ext_resource type="PackedScene" uid="uid://y2uye1mxwjge" path="res://SceneInstance/Cube.tscn" id="2_rbdwg"]
+[ext_resource type="Material" uid="uid://bw6tmk3eggx28" path="res://Materials/Floor.tres" id="3_hwo70"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_aecb3"]
+size = Vector3(10, 0.1, 10)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="XROrigin3D" parent="." instance=ExtResource("1_aqtp4")]
+
+[node name="WorldEnvironment" parent="." instance=ExtResource("2_rbdwg")]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_aecb3")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor"]
+material_override = ExtResource("3_hwo70")
+size = Vector3(10, 0.1, 10)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.73922, 0.391217, 0.548182, -0.673464, 0.429414, 0.601705, 0, -0.813974, 0.580902, 0, 0, 0)

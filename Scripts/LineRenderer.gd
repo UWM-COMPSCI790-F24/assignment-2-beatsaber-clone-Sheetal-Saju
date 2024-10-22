@@ -1,3 +1,4 @@
+
 extends MeshInstance3D
 
 @export var points = [Vector3(0,0,0),Vector3(0,5,0)]
@@ -16,9 +17,7 @@ var cameraOrigin
 func _ready():
 	pass
 
-func _process(delta):
-	
-	
+func _process(delta):	
 	if points.size() < 2:
 		return
 	
@@ -154,4 +153,3 @@ func corner(center, start, end, smoothing):
 		mesh.surface_add_vertex(array[i]);
 		mesh.surface_set_uv(Vector2(0.5, 0.5))
 		mesh.surface_add_vertex(center);
-		

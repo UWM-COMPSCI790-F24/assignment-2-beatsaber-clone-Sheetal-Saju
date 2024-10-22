@@ -14,3 +14,11 @@ func _ready():
 		get_viewport().use_xr = true
 	else:
 		print("OpenXR not initialized, please check if your headset is connected")
+
+
+func _on_right_pointing_controller_button_pressed(name: String) -> void:
+	pass # Replace with function body.
+
+
+func _on_left_pointing_controller_button_pressed(name: String) -> void:
+	pass # Replace with function body.

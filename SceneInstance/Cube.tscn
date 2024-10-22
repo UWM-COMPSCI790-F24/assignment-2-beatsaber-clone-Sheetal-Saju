@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://y2uye1mxwjge"]
+
+[ext_resource type="Material" uid="uid://dsdny1njbwrro" path="res://Materials/Blue.tres" id="1_67yln"]
+[ext_resource type="Script" path="res://Scripts/CubeSpawner.gd" id="1_g72hc"]
+[ext_resource type="Script" path="res://Scripts/CubeRight.gd" id="2_0atci"]
+[ext_resource type="Material" uid="uid://bf5emao531f4l" path="res://Materials/Red.tres" id="3_lw2hx"]
+[ext_resource type="Script" path="res://Scripts/CubeLeft.gd" id="4_en2lb"]
+
+[sub_resource type="Environment" id="Environment_ukrgf"]
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_wravr"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2jg24"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_ukrgf")
+camera_attributes = SubResource("CameraAttributesPractical_wravr")
+script = ExtResource("1_g72hc")
+
+[node name="RightBlueCube" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 1.5, 0)
+material_override = ExtResource("1_67yln")
+size = Vector3(0.5, 0.5, 0.5)
+script = ExtResource("2_0atci")
+
+[node name="Area3D" type="Area3D" parent="RightBlueCube"]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RightBlueCube/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_2jg24")
+
+[node name="LeftRedCube" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.2, 1.5, 0)
+material_override = ExtResource("3_lw2hx")
+size = Vector3(0.5, 0.5, 0.5)
+script = ExtResource("4_en2lb")
+
+[node name="Area3D" type="Area3D" parent="LeftRedCube"]
+collision_layer = 768
+collision_mask = 768
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="LeftRedCube/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_2jg24")

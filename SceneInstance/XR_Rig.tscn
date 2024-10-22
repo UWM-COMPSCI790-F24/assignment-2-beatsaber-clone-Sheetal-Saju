@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://dq733seyb6i7d"]
+[gd_scene load_steps=10 format=3 uid="uid://dq733seyb6i7d"]
 
 [ext_resource type="Script" path="res://Scripts/XRSetup.gd" id="1_pd0k1"]
 [ext_resource type="PackedScene" uid="uid://ckyll74orpxjq" path="res://SceneInstance/PointingController.tscn" id="5_naq8d"]
 [ext_resource type="PackedScene" uid="uid://cnwp7ndjr4s8y" path="res://Models/Quest2Controllers/OculusQuest2TouchController_Left.gltf" id="6_sniy3"]
 [ext_resource type="Script" path="res://Scripts/PointingInteraction.gd" id="7_u3vcr"]
+[ext_resource type="Material" uid="uid://0n1cqc40dwmq" path="res://Materials/RightLaser.tres" id="8_4u65c"]
 [ext_resource type="PackedScene" uid="uid://bc8lh0rihgxvi" path="res://Models/Quest2Controllers/OculusQuest2TouchController_Right.gltf" id="8_dy68t"]
 [ext_resource type="Script" path="res://Scripts/LineRenderer.gd" id="9_bjnww"]
-[ext_resource type="Material" uid="uid://dpy7wl4ge58mk" path="res://Materials/Laser.tres" id="9_lmi2c"]
+[ext_resource type="Material" uid="uid://dpy7wl4ge58mk" path="res://Materials/LeftLaser.tres" id="9_lmi2c"]
 
 [sub_resource type="ImmediateMesh" id="ImmediateMesh_rub5m"]
 
@@ -22,7 +23,7 @@ script = ExtResource("7_u3vcr")
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 
 [node name="LineRenderer" type="MeshInstance3D" parent="LeftPointingController"]
-material_override = ExtResource("9_lmi2c")
+material_override = ExtResource("8_4u65c")
 mesh = SubResource("ImmediateMesh_rub5m")
 skeleton = NodePath("../..")
 script = ExtResource("9_bjnww")
@@ -39,3 +40,6 @@ material_override = ExtResource("9_lmi2c")
 mesh = SubResource("ImmediateMesh_rub5m")
 skeleton = NodePath("../..")
 script = ExtResource("9_bjnww")
+
+[connection signal="button_pressed" from="LeftPointingController" to="LeftPointingController" method="_on_button_pressed"]
+[connection signal="button_pressed" from="RightPointingController" to="RightPointingController" method="_on_button_pressed"]

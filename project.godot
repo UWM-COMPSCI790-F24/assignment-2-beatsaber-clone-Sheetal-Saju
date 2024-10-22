@@ -11,9 +11,22 @@ config_version=5
 [application]
 
 config/name="assignment-2"
-run/main_scene="res://Scenes/FallingCubes.tscn"
+run/main_scene="res://Scenes/BeatSaber.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[input]
+
+toggle_laser_right={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+toggle_laser_left={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":2,"pressure":0.0,"pressed":false,"script":null)
+]
+}
 
 [rendering]
 
